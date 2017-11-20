@@ -14,7 +14,7 @@ public class GameView extends SurfaceView implements Runnable {
     public static float unitH = 0; // пикселей в юните по вертикали
     private boolean firstTime = true;
     private boolean gameRunning = true;
-    private Ship ship;
+    private Man man;
     private Thread gameThread = null;
     private Paint paint;
     private Canvas canvas;
@@ -42,7 +42,7 @@ public class GameView extends SurfaceView implements Runnable {
 
     private void update() {
         if(!firstTime) {
-            ship.update();
+            man.update();
         }
     }
 
@@ -54,13 +54,13 @@ public class GameView extends SurfaceView implements Runnable {
                 unitW = surfaceHolder.getSurfaceFrame().width()/maxX; // вычисляем число пикселей в юните
                 unitH = surfaceHolder.getSurfaceFrame().height()/maxY;
 
-                ship = new Ship(getContext()); // добавляем корабль
+                man = new Man(getContext()); // добавляем корабль
             }
 
             canvas = surfaceHolder.lockCanvas(); // закрываем canvas
             canvas.drawColor(Color.BLACK); // заполняем фон чёрным
 
-            ship.drow(paint, canvas); // рисуем корабль
+            man.drow(paint, canvas); // рисуем корабль
 
             surfaceHolder.unlockCanvasAndPost(canvas); // открываем canvas
         }
