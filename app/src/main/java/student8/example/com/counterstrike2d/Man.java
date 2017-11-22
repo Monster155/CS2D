@@ -17,9 +17,9 @@ public class Man {
 
     public Man(Context context) {
         bitmapId = R.drawable.stand; // определяем начальные параметры
-        size = 2;
-        x = 7;
+        size = GameView.maxY/24;
         y = GameView.maxY - size - 1;
+        x = 7;
         speed = (float) 0.2;
 
         init(context); // инициализируем персонажа
